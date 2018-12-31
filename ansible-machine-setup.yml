@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - name: Install vim
+      apt: name=vim state=present update_cache=yes 
+      become: yes
+    - name: Copy vimrc file
+      copy: >
+        src=vim/.vimrc
+        dest=/home/jon/.vimrc
+  
